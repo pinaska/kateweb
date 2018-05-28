@@ -1,0 +1,39 @@
+.site-footer{
+  .site-info{
+    background: url(../../assets/img/socialmedia.svg);
+    background-repeat:no-repeat;
+    background-position-y: 105%;
+    background-position-x: 50%;
+    background-color: #ad5358;
+    text-align: center;
+    color:white;
+    // padding: 10px;
+    .footer-text{
+      text-align: left;
+      line-height: 0.6;
+      padding: 5%;
+      p{
+        margin:0;
+        font-size: 0.6rem;
+      }
+    }
+
+    ul {
+      margin: 0 auto;
+      padding-top: 0;
+      padding-left: 30%;
+      padding-right: 30%;
+      padding-bottom: 3px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      li{
+        width: 50px;
+        height: 50px;
+      }
+
+    }
+  }
+}
+

@@ -1,0 +1,50 @@
+/*--------------------------------------------------------------
+# Page Templates
+--------------------------------------------------------------*/
+
+
+
+
+section{
+    height: 40rem;
+  }
+  /* Front page */
+.home{
+    .entry-content, .entry-summary, .page-content {
+        margin: 0 auto;
+    }
+    .hentry{
+        margin: 0;
+    }
+    .front-page-container{
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        // grid-template-rows: 1fr 1fr;
+        /*-- columns: 1fr, rows - 3fr;*/
+        .front-page-item:first-of-type{
+              background-color: #003372;
+              color: #ffff;
+              // grid-area: 1/1/3/2;
+              // display: flex;
+              // flex-direction: column;
+              // justify-content: space-between;
+            }
+        .front-page-item:nth-of-type(2){
+              background-color: #71e2dc;
+              color: #357572;
+              // flex:1;
+            }
+        .front-page-item:nth-of-type(3){
+              background-color: #f7989c;
+              color: #ad5358;
+            }
+      }
+      .front-page-item{
+        padding:5%;
+        h1{
+          font-size: 50px;
+          text-decoration: underline;
+          letter-spacing: 3px;
+        }
+      }
+}// end of .home
