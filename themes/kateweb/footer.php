@@ -11,14 +11,24 @@
 
 			<footer id="colophon" class="site-footer" role="contentinfo">
 				<div class="site-info">
-					<div class="footer-text">
-					<p><a href="<?php echo esc_url( 'https://github.com/pinaska' ); ?>">made by kate</a></p><br>
-					<p><a href="<?php echo esc_url( 'http://theawwwesomes.org/' ); ?>">design inspired by the Awwwesomes</a></p><br>
-					<p>Spring 2018 | Vancouver Canada</p>
-					</div>
+					<ul class="footer-text">
+					<li class="footer-text-p">
+							<p>design inspired by <a href="<?php echo esc_url( 'http://theawwwesomes.org/' ); ?>">the Awwwesomes</a></p>
+						</li>
+						<li class="footer-text-p">
+							<p>made by <a href="<?php echo esc_url( 'https://github.com/pinaska' ); ?>">kate </a></p>
+						</li>
+						<li class="footer-text-p">
+							<p> Spring 2018</p
+							></li>
+						<li class="footer-text-p">
+							<p> Vancouver Canada</p>
+						</li>
+					</ul>
 					<ul class="social">
 						<li class="social-item"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/facebook.svg" alt="facebook icon"/></a></li>
 						<li class="social-item"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/instagram.svg" alt="instagram icon"/></a></li>
+						<li class="social-item"><a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/github.svg" alt="github icon"/></a></li>
 					</ul>
 				</div><!-- .site-info -->
 			</footer><!-- #colophon -->

@@ -236,8 +236,8 @@ select,
 textarea {
   color: #404040;
   font-family: "Inconsolata", monospace;
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.5; }
 
 /* Headings */
@@ -261,8 +261,8 @@ address {
 pre {
   background: #eee;
   font-family: "Courier 10 Pitch", Courier, monospace;
-  font-size: 15px;
-  font-size: 0.9375rem;
+  font-size: 18.75px;
+  font-size: 1.17188rem;
   line-height: 1.6;
   margin-bottom: 1.6rem;
   max-width: 100%;
@@ -271,8 +271,8 @@ pre {
 
 code, kbd, tt, var {
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  font-size: 15px;
-  font-size: 0.9375rem; }
+  font-size: 18.75px;
+  font-size: 1.17188rem; }
 
 abbr, acronym {
   border-bottom: 1px dotted #666;
@@ -291,10 +291,11 @@ big {
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0;
-  height: 100vh; }
+  height: 100%;
+  width: 100%; }
 
 *,
 *:before,
@@ -305,7 +306,10 @@ html {
 
 body {
   background: white;
-  /* Fallback for when there is no custom background color defined. */ }
+  /* Fallback for when there is no custom background color defined. */
+  position: relative;
+  width: 100%;
+  height: 100%; }
 
 blockquote, q {
   quotes: "" ""; }
@@ -363,8 +367,8 @@ input[type="submit"] {
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1;
   padding: .6rem 1rem .4rem;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
@@ -422,7 +426,7 @@ textarea {
 a {
   color: #71e2dc; }
   a:visited {
-    color: white; }
+    color: #71e2dc; }
   a:hover, a:focus, a:active {
     color: white; }
   a:focus {
@@ -483,7 +487,9 @@ a {
         justify-content: space-around;
     position: fixed;
     z-index: 2;
-    padding: 10px; } }
+    padding: 10px; }
+    .main-navigation ul li {
+      padding: 10px; } }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -522,8 +528,8 @@ a {
     clip: auto !important;
     color: #21759b;
     display: block;
-    font-size: 14px;
-    font-size: 0.875rem;
+    font-size: 17.5px;
+    font-size: 1.09375rem;
     font-weight: bold;
     height: auto;
     left: 5px;
@@ -687,10 +693,21 @@ section {
   margin: 0; }
 
 .home .front-page-container {
-  /*-- columns: 1fr, rows - 3fr;*/ }
+  display: block; }
   .home .front-page-container .front-page-item:first-of-type {
     background-color: #003372;
-    color: #ffff; }
+    color: #ffff;
+    grid-area: 1/1/3/2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
   .home .front-page-container .front-page-item:nth-of-type(2) {
     background-color: #71e2dc;
     color: #357572; }
@@ -705,6 +722,16 @@ section {
     text-decoration: underline;
     letter-spacing: 3px; }
 
+@media (min-width: 1000px) {
+  .home .front-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; }
+    .home .front-page-container .front-page-item:first-of-type {
+      background-color: #003372;
+      color: #ffff;
+      grid-area: 1/1/3/2; } }
+
 .site-footer .site-info {
   background: url(../../assets/img/socialmedia.svg);
   background-repeat: no-repeat;
@@ -714,12 +741,17 @@ section {
   text-align: center;
   color: white; }
   .site-footer .site-info .footer-text {
-    text-align: left;
-    line-height: 0.6;
+    line-height: 1;
     padding: 5%; }
+    .site-footer .site-info .footer-text .footer-text-p {
+      margin-right: 5px; }
     .site-footer .site-info .footer-text p {
       margin: 0;
       font-size: 0.6rem; }
+      .site-footer .site-info .footer-text p a {
+        color: white; }
+        .site-footer .site-info .footer-text p a:visited {
+          color: white; }
   .site-footer .site-info ul {
     margin: 0 auto;
     padding-top: 0;
@@ -736,6 +768,6 @@ section {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly; }
-    .site-footer .site-info ul li {
+    .site-footer .site-info ul img {
       width: 50px;
       height: 50px; }

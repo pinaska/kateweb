@@ -7,12 +7,16 @@ const cssnano = require('gulp-cssnano');
 const uglify = require('gulp-uglify');
 const eslint = require('gulp-eslint');
 const browserSync = require('browser-sync');
+const sourcemaps = require('gulp-sourcemaps');
+
+
 
 // Create basic Gulp tasks
 
 gulp.task('sass', function() {
   return gulp
-    .src('./sass/style.scss', { sourcemaps: true })
+    .src('./sass/style.scss')
+    .pipe(sourcemaps.init())
     .pipe(prettyError())
     .pipe(sass())
     .pipe(
@@ -23,6 +27,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./'))
     .pipe(cssnano())
     .pipe(rename('style.min.css'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./build/css'));
 });
 
