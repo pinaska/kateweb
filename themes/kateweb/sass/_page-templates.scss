@@ -2,12 +2,11 @@
 # Page Templates
 --------------------------------------------------------------*/
 
-
-
-
 section{
     height: 40rem;
   }
+
+
   /* Front page */
 .home{
     .entry-content, .entry-summary, .page-content {
@@ -58,3 +57,9 @@ section{
 
       }
 }// end of .home
+
+
+/*Single portfolio item*/
+.portfolioitem-template-default{
+  display: block;
+}

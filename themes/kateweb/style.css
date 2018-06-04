@@ -1,9 +1,9 @@
 /*!
 Theme Name: Kateweb Theme
 Theme URI: http://underscores.me/
-Author: RED Academy
+Author: Kate J
 Author URI: http://www.redacademy.com
-Description: A WordPress starter theme for RED Academy students.
+Description: A theme for Kate Web site
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -307,7 +307,6 @@ html {
 body {
   background: white;
   /* Fallback for when there is no custom background color defined. */
-  position: relative;
   width: 100%;
   height: 100%; }
 
