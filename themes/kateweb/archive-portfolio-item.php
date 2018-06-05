@@ -10,12 +10,16 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			<div class="portfolio-text">
+			<p>scroll down to find all our works</p>
+			</div>
+		<header>
+			<h1 class="portfolio-item-archive">portfolio</h1>
+		</header>
 
 		<?php if ( have_posts() ) : ?>
 
-				<header>
-					<h1 class="portfolio-item-archive">All our projects are here</h1>
-				</header>
+
 
 				<div class="portfolio-items-grid container">
 				<?php /* Start the Loop */ ?>
