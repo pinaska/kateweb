@@ -6,9 +6,20 @@ section{
     height: 40rem;
   }
 
+  .error404, .page, .portfolioitem-template-default, .post-type-archive-portfolio-item{
+    .site-header{
+      padding-bottom: 3rem;
+    }
+
+    margin: 0 auto;
+  }
+
 
   /* Front page */
 .home{
+  .site-header{
+    padding-bottom: 0;
+  }
     .entry-content, .entry-summary, .page-content {
         margin: 0 auto;
     }
@@ -62,4 +73,25 @@ section{
 /*Single portfolio item*/
 .portfolioitem-template-default{
   display: block;
+}
+
+
+/*portfolio-item-archive*/
+.post-type-archive-portfolio-item{
+
+.portfolio-item-grid{
+  display: grid;
+  grid-template-columns:1fr;
+  grid-template-rows:1fr;
+  @include tablet{
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 2fr 2fr;
+  }
+  @include desktop{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+
+  }
 }

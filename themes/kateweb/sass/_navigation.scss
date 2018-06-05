@@ -6,9 +6,13 @@
 
 a {
 	color: $color__link;
+	text-decoration: none;
 
 	&:visited {
 		color: $color__link-visited;
+	}
+	&:hover{
+		text-decoration: underline;
 	}
 	&:hover,
 	&:focus,
@@ -68,6 +72,7 @@ a {
 
 			a:hover,
 			a.focus {
+				text-decoration: underline;
 			}
 		}
 
@@ -93,6 +98,12 @@ a {
 	.current-menu-item > a,
 	.current_page_ancestor > a {
 	}
+}
+.logo{
+	width: 50px;
+					height: 33.25px;
+					background-size: cover;
+					background-image: url("../../assets/img/kateweb_logo_www_pink.png"); 
 }
 
 /* Small menu. */

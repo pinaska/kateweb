@@ -20,7 +20,7 @@ get_header(); ?>
 								<div class="front-page-item">
 									<div class="hello-text">
 									<h1>Hello !</h1>
-									<p>We build nice websites to help you tell a story.</p>
+									<p>We code nice websites to help you tell a story.</p>
 									</div>
 								</div>
 								<div class="front-page-item">
@@ -31,7 +31,7 @@ get_header(); ?>
 								<div class="front-page-item">
 									<!-- <img class="position-letter" src="assets/p.svg"> -->
 									<h1>Team of two.</h1>
-									<p> Kate and Kuba. Hunsband and wife. Fine Arts, programming and analytics skills combined. We can help you. </p>
+									<p> Kate and Kuba. Husband and wife. Fine Arts, programming and analytics skills combined. You tell us and we code it. </p>
 								</div>
 							</div>
                     </div><!-- .entry-content -->

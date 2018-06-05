@@ -1,9 +1,9 @@
 /*!
 Theme Name: Kateweb Theme
 Theme URI: http://underscores.me/
-Author: Kate J
+Author: Kate Jeziorska
 Author URI: http://www.redacademy.com
-Description: A theme for Kate Web site
+Description: a worpdress theme for Kate Web
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -307,6 +307,7 @@ html {
 body {
   background: white;
   /* Fallback for when there is no custom background color defined. */
+  position: relative;
   width: 100%;
   height: 100%; }
 
@@ -423,11 +424,14 @@ textarea {
 --------------------------------------------------------------*/
 /* Links */
 a {
-  color: #71e2dc; }
+  color: #71e2dc;
+  text-decoration: none; }
   a:visited {
     color: #71e2dc; }
+  a:hover {
+    text-decoration: underline; }
   a:hover, a:focus, a:active {
-    color: white; }
+    color: #f7989c; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -460,6 +464,9 @@ a {
         left: 100%; }
       .main-navigation ul ul a {
         width: 200px; }
+      .main-navigation ul ul a:hover,
+      .main-navigation ul ul a.focus {
+        text-decoration: underline; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
       left: auto; }
@@ -469,6 +476,12 @@ a {
   .main-navigation a {
     display: block;
     text-decoration: none; }
+
+.logo {
+  width: 50px;
+  height: 33.25px;
+  background-size: cover;
+  background-image: url("../../assets/img/kateweb_logo_www_pink.png"); }
 
 /* Small menu. */
 .menu-toggle,
@@ -684,7 +697,15 @@ object {
 section {
   height: 40rem; }
 
+.error404, .page, .portfolioitem-template-default, .post-type-archive-portfolio-item {
+  margin: 0 auto; }
+  .error404 .site-header, .page .site-header, .portfolioitem-template-default .site-header, .post-type-archive-portfolio-item .site-header {
+    padding-bottom: 3rem; }
+
 /* Front page */
+.home .site-header {
+  padding-bottom: 0; }
+
 .home .entry-content, .home .entry-summary, .home .page-content {
   margin: 0 auto; }
 
@@ -730,6 +751,24 @@ section {
       background-color: #003372;
       color: #ffff;
       grid-area: 1/1/3/2; } }
+
+/*Single portfolio item*/
+.portfolioitem-template-default {
+  display: block; }
+
+/*portfolio-item-archive*/
+.post-type-archive-portfolio-item .portfolio-item-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr; }
+  @media (min-width: 600px) {
+    .post-type-archive-portfolio-item .portfolio-item-grid {
+      grid-template-columns: 2fr 2fr;
+      grid-template-rows: 2fr 2fr; } }
+  @media (min-width: 1000px) {
+    .post-type-archive-portfolio-item .portfolio-item-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr; } }
 
 .site-footer .site-info {
   background: url(../../assets/img/socialmedia.svg);
