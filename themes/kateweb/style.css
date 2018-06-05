@@ -234,7 +234,7 @@ button,
 input,
 select,
 textarea {
-  color: #404040;
+  color: #71e2dc;
   font-family: "Inconsolata", monospace;
   font-size: 20px;
   font-size: 1.25rem;
@@ -244,6 +244,15 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: "Prata", serif; }
+
+h1, h2 {
+  text-transform: lowercase;
+  font-weight: lighter;
+  line-height: 1.2; }
+
+h1 {
+  letter-spacing: 0.2rem;
+  text-decoration: underline; }
 
 /* Copy */
 p {
@@ -310,6 +319,13 @@ body {
   position: relative;
   width: 100%;
   height: 100%; }
+
+section {
+  height: 40rem; }
+
+.container {
+  margin: 0 3rem;
+  padding-top: 2rem; }
 
 blockquote, q {
   quotes: "" ""; }
@@ -569,8 +585,7 @@ a {
 .aligncenter {
   clear: both;
   display: block;
-  margin-left: auto;
-  margin-right: auto; }
+  margin: 0 2rem; }
 
 /*--------------------------------------------------------------
 # Clearings
@@ -654,8 +669,7 @@ object {
   max-width: 100%; }
   .wp-caption img[class*="wp-image-"] {
     display: block;
-    margin-left: auto;
-    margin-right: auto; }
+    margin: 0 2rem; }
   .wp-caption .wp-caption-text {
     margin: 0.8075rem 0; }
 
@@ -694,9 +708,6 @@ object {
 /*--------------------------------------------------------------
 # Page Templates
 --------------------------------------------------------------*/
-section {
-  height: 40rem; }
-
 .error404, .page, .portfolioitem-template-default, .post-type-archive-portfolio-item {
   margin: 0 auto; }
   .error404 .site-header, .page .site-header, .portfolioitem-template-default .site-header, .post-type-archive-portfolio-item .site-header {
@@ -757,18 +768,54 @@ section {
   display: block; }
 
 /*portfolio-item-archive*/
-.post-type-archive-portfolio-item .portfolio-item-grid {
+.post-type-archive-portfolio-item h2 a {
+  color: #16736e;
+  font-family: "Inconsolata", monospace; }
+
+.post-type-archive-portfolio-item .site-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* justify-content: center; */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.post-type-archive-portfolio-item .portfolio-items-grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr; }
-  @media (min-width: 600px) {
-    .post-type-archive-portfolio-item .portfolio-item-grid {
-      grid-template-columns: 2fr 2fr;
-      grid-template-rows: 2fr 2fr; } }
-  @media (min-width: 1000px) {
-    .post-type-archive-portfolio-item .portfolio-item-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr; } }
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+  text-align: right; }
+  .post-type-archive-portfolio-item .portfolio-items-grid .portfolio-grid-item {
+    display: block; }
+    @media (min-width: 600px) {
+      .post-type-archive-portfolio-item .portfolio-items-grid .portfolio-grid-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between; } }
+    .post-type-archive-portfolio-item .portfolio-items-grid .portfolio-grid-item:nth-of-type(even) {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse; }
+    .post-type-archive-portfolio-item .portfolio-items-grid .portfolio-grid-item .portfolio-item-thumbnail {
+      width: 300px;
+      height: 100%;
+      overflow: hidden;
+      border: 2px solid navy; }
+      .post-type-archive-portfolio-item .portfolio-items-grid .portfolio-grid-item .portfolio-item-thumbnail a img {
+        -webkit-animation: slideLayout 5s infinite;
+                animation: slideLayout 5s infinite; }
+    .post-type-archive-portfolio-item .portfolio-items-grid .portfolio-grid-item .portfolio-item-info {
+      width: 300px; }
 
 .site-footer .site-info {
   background: url(../../assets/img/socialmedia.svg);

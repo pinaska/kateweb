@@ -1,12 +1,7 @@
 /*--------------------------------------------------------------
 # Page Templates
 --------------------------------------------------------------*/
-
-section{
-    height: 40rem;
-  }
-
-  .error404, .page, .portfolioitem-template-default, .post-type-archive-portfolio-item{
+.error404, .page, .portfolioitem-template-default, .post-type-archive-portfolio-item{
     .site-header{
       padding-bottom: 3rem;
     }
@@ -75,23 +70,49 @@ section{
   display: block;
 }
 
-
 /*portfolio-item-archive*/
 .post-type-archive-portfolio-item{
+  h2 a{
+    color: rgb(22, 115, 110);
+    font-family: $font__main;
+  }
+.site-content{
+  display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
 
-.portfolio-item-grid{
+
+.portfolio-items-grid{
   display: grid;
   grid-template-columns:1fr;
   grid-template-rows:1fr;
-  @include tablet{
-    grid-template-columns: 2fr 2fr;
-    grid-template-rows: 2fr 2fr;
+  grid-gap: 1rem;
+  text-align: right;
+  .portfolio-grid-item{
+    display: block;
+    @include tablet{
+    display: flex;
+    justify-content: space-between;
   }
-  @include desktop{
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+  &:nth-of-type(even){
+    flex-direction: row-reverse;
   }
-
-
+  .portfolio-item-thumbnail{
+    // object-fit: contain;
+    width: 300px;
+    height: 100%;
+    overflow: hidden;
+    border:2px solid navy;
+   a img{
+     //I want to have a light moving effect
+    animation: slideLayout 5s infinite;
+   }
   }
+  .portfolio-item-info{
+    width:300px;
+  }
+}
+}
 }

@@ -17,13 +17,13 @@ get_header(); ?>
 					<h1 class="portfolio-item-archive">All our projects are here</h1>
 				</header>
 
-				<div class="portfolio-item-grid container">
+				<div class="portfolio-items-grid container">
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
                 <div class="portfolio-grid-item">
 						<div class="portfolio-item-thumbnail">
 							<a href=<?php echo get_post_permalink() ?>><?php the_post_thumbnail( 'large' ); ?></a>
-                        </div>
+                </div>
 
               <div class="portfolio-item-info">
                 <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>

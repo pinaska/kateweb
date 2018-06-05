@@ -19,6 +19,16 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-family:$font__second;
 }
+h1, h2{
+	text-transform: lowercase;
+	font-weight: lighter;
+	line-height: 1.2;
+  }
+h1{
+letter-spacing: 0.2rem;
+text-decoration: underline;
+}
+
 
 /* Copy */
 
