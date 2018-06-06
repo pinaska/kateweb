@@ -7,12 +7,13 @@
 a {
 	color: $color__link;
 	text-decoration: none;
+	transition: all .2s ease-in-out;
 
 	&:visited {
 		color: $color__link-visited;
 	}
 	&:hover{
-		text-decoration: underline;
+		transform: scale(1.2);
 	}
 	&:hover,
 	&:focus,
@@ -25,11 +26,15 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
+		transform: scale(1.2);
 	}
 }
 
 /* Menus */
-
+.site-header{
+	display: flex;
+	position: fixed;
+}
 .main-navigation {
 	clear: both;
 	display: block;
@@ -64,15 +69,11 @@ a {
 
 			a {
 				width: 200px;
-			}
 
-			:hover > a,
-			.focus > a {
 			}
 
 			a:hover,
 			a.focus {
-				text-decoration: underline;
 			}
 		}
 
@@ -103,7 +104,7 @@ a {
 .custom-logo-link{
 	img{
 		display:block;
-		height: 65px;
+		height: auto;
 		width:auto;
 	}
 }
@@ -121,7 +122,7 @@ a {
 	.main-navigation ul {
 		display: flex;
 		justify-content: space-around;
-		position: fixed;
+		// position: fixed;
 		z-index: 2;
 		padding: 10px;
 		li{

@@ -1,9 +1,9 @@
 /*--------------------------------------------------------------
 # Page Templates
 --------------------------------------------------------------*/
-.error404, .page, .portfolioitem-template-default, .post-type-archive-portfolio-item, .single-portfolio-item{
-    .site-header{
-      padding-bottom: 3rem;
+.error404, .page-template-default.page, .portfolioitem-template-default, .post-type-archive-portfolio-item, .single-portfolio-item{
+    .site-content{
+      padding-top: 3rem;
     }
 
     margin: 0 auto;
@@ -11,9 +11,9 @@
 
 
   /* Front page */
-.home{
-  .site-header{
-    padding-bottom: 0;
+.home.page-template-default.page{
+  .site-content{
+    padding-top: 0;
   }
     .entry-content, .entry-summary, .page-content {
         margin: 0 auto;
@@ -72,16 +72,25 @@
 }
 
 /*Portfolio portfolio-item-archive*/
+.post-type-archive-portfolio-item{
+  background-color: rgba(22, 115, 110, 0.05);
+}
+
 .portfolio-text{
 margin: 0 auto;
-color: #003372;
 font-size: 0.8rem;
 width: 300px;
+
 }
 .post-type-archive-portfolio-item{
   h2 a{
     color: rgb(22, 115, 110);
     font-family: $font__main;
+    &:hover{
+      transform: scale(1.2);
+      color:$color__link-hover;
+}
+    }
   }
 .portfolio-items-grid{
   display: grid;
@@ -94,7 +103,7 @@ width: 300px;
   }
   .portfolio-grid-item{
     display: block;
-    max-width: 800px;
+    // max-width: 800px;
     @include tablet{
     display: flex;
     justify-content: space-evenly;
@@ -102,17 +111,19 @@ width: 300px;
   &:nth-of-type(even){
     flex-direction: row-reverse;
     text-align: right;
-    // background-color:rgba(186,186,186,.69);
-    background-color: rgba(22, 115, 110, 0.05);
+    // background-color: rgba(22, 115, 110, 0.05);
   }
   .portfolio-item-thumbnail{
     object-fit: contain;
-    width: 300px;
+    // width: 300px;
     height: auto;
     overflow: hidden;
    a img{
      //I want to have a light moving effect
     animation: slideLayout 5s infinite;
+   }
+   @include desktop{
+    max-width: 300px;
    }
   }
   .portfolio-item-info{
@@ -124,8 +135,12 @@ width: 300px;
     // border:1px solid #71e2dc;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    &:hover{
+      transform: scale(1.2);
+    }
 
   }
 }
 }
-}
+
+
