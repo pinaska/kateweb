@@ -25,7 +25,6 @@ get_header(); ?>
 								</div>
 								<div class="front-page-item">
 									<h1>Our portfolio.</h1>
-									<p><a href="http://localhost/katewp/portfolioitem/test-portfolio-item/">link to portfolio_item</a></p>
 									<p> We build web so you can make money. And we build web for fun too.</p>
 								</div>
 								<div class="front-page-item">
