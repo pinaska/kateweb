@@ -66,9 +66,13 @@
 
 
 /*Single portfolio item*/
-.portfolioitem-template-default{
+.portfolio-item-template-default{
   display: block;
-
+  @include tablet{
+    img.portfolio-item-cfs-img{
+    max-width: 50%;
+    }
+  }
 }
 
 /*Portfolio portfolio-item-archive*/
