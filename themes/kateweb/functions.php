@@ -91,7 +91,7 @@ add_filter( 'stylesheet_uri', 'kateweb_minified_css', 10, 2 );
 function kateweb_scripts() {
 	wp_enqueue_style( 'kateweb-style', get_stylesheet_uri() );
 
-	wp_enqueue_script('kateweb-navigation', get_template_directory_uri('/js/navigation.js'), array('jquery'), '20131115', true );
+	wp_enqueue_script('kateweb-navigation', get_template_directory_uri('/build/js/navigation.min.js'), array('jquery'), '20131115', true );
 	wp_localize_script( 'kateweb-navigation', 'katewebScreenReaderText', array(
 		'expand' => __('Expand child menu', 'kateweb'),
 		'collapse' => __('Collapse child menu', 'kateweb'),
@@ -114,3 +114,4 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
