@@ -20,18 +20,25 @@ get_header(); ?>
 				</header><!-- .entry-header -->
 				<div class="entry-content">
 					<?php the_content(); ?>
-					<img src="<?php echo CFS()->get( 'portfolio_item_image' ); ?>" alt="the portfolio item img">
+					<img src="<?php echo CFS()->get( 'portfolio_item_image' ); ?>" alt="the portfolio item img" class="portfolio-item-cfs-img">
 					<?php echo CFS()->get( 'portfolio_item_description' ); ?>
 					<?php echo CFS()->get( 'portfolio_item_start' ); ?>
 					<?php echo CFS()->get( 'portfolio_item_end' ); ?>
 					<?php echo CFS()->get( 'portfolio_item_link' ); ?>
+
+					<!--add the custom taxonomies-->
+					<ul><?php echo get_the_term_list( $post->ID, 'portfolio_item_type', '<li class="portfolio_item_type">', ' | ', '</li>' ) ?></ul>
+
+					
 				</div><!-- .entry-content -->
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!--.wrap-->
+
+
 <nav class="navigation post-navigation load-previous" role="navigation">
-		<span class="nav-subtitle">Previous post</span>
+		<span class="nav-subtitle">More our works</span>
 		<div class="nav-links">
 			<div class="nav-previous">
 				<?php $previous_post = get_previous_post(); ?>
@@ -40,7 +47,7 @@ get_header(); ?>
 				</a>
 			</div>
 		</div>
-	</nav>
+</nav>
 
 <?php endwhile; // End of the loop. ?>
 <?php wp_footer(); ?>

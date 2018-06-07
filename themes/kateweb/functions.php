@@ -104,6 +104,23 @@ function kateweb_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'kateweb_scripts' );
+/*
+** Enqueue JavaScript for AJAX load more portfolio items. 6.6. from WP:REST API, lynda.com
+*/
+
+add_action( 'wp_enqueue_scripts', 'kateweb_ajax_scripts');
+function kateweb_ajax_scripts(){
+	if(is_single()){
+		wp_enqueue_script( 'kateweb-ajax-js', get_theme_file_uri('/build/js/previous.ajax.min.js'), array('jquery'),'0.1', true);
+		wp_localize_script( 'kateweb-ajax-js', 'postdata', 
+		array(
+			'post_id' => get_the_ID(),
+			'theme_uri'=> get_stylesheet_directory_uri(),
+			'rest_url' => rest_url('wp/v2/'),
+			)
+		);
+	}
+}
 
 /**
  * Custom template tags for this theme.
@@ -114,4 +131,12 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
+
+function cfs_variables($post_response, $post, $context) {
+	$post_response->data['CFS']=CFS()->get( false, $post->ID, array( 'format' => 'raw' ) );
+	  return $post_response ;
+	}
+	add_filter('rest_prepare_portfolio-item', 'cfs_variables', 12, 3);
+	add_filter('rest_prepare_post', 'cfs_variables', 12, 3);
 
