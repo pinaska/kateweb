@@ -1,108 +1,153 @@
 /**
- * AJAX script to load previous portfolio-item.
+ * AJAX script to load smoothly portfolio-items from single-portfolioitem.php.
+ * BACKUP 7.06 becuase I am trying other solution
  */
 
- (function($){
-    //  var post_id = postdata.post_id;
-    //  var theme_uri = postdata.theme_uri;
-    //  var rest_url = postdata.rest_url;
-
-    //  console.log('post_id: ' +  post_id + 'theme_uri: '+ theme_uri + 'rest_url:' + rest_url);
 
 
-    $('.load-previous a').attr('href', 'javascript:void(0)');
-    function previous_post_trigger(){
-        $('.load-previous a').on('click', get_previous_post);
+(function($){
+
+var $mainContent = $('.wrap');
+var documentHeight = $(document).height();
+var windowHeight = $(window).height();
+var heightOffset = documentHeight - windowHeight;
+var triggerAjaxOffest = 100;
+var scrolling = false;
+var yPos = 0;
+var postIndex = 1;
+// var postsPerPage = 3;
+var morePosts = true;
+
+var postsUrl = 'http://localhost/katewp/wp-json/wp/v2/portfolio-item/?_embed=trues';
+
+/**
+ * Window Scroll Position
+ */
+$(window).scroll(function() {
+  yPos = $(window).scrollTop();
+//   console.log(yPos);
+  if (!scrolling) {
+    scrolling = true;
+    setTimeout(function() {
+      scrolling = false;
+      checkScrollPos(yPos);
+    }, 300);
+  }
+});
+
+/**
+ * Check position from top
+ */
+function checkScrollPos(yPos) {
+//   console.log('check scroll pos');
+//   console.log(yPos);
+  if (yPos >= heightOffset - triggerAjaxOffest) {
+    // console.log('bottom of page');
+    // console.log(yPos);
+    ajaxRequest();
+  }
+}
+
+/**
+ * Ajax request load posts
+ */
+function ajaxRequest() {
+  $.ajax({
+    method: 'get',
+    url:postsUrl
+  })
+    .done(function(data) {
+    //   console.log(data);
+    //   postIndex += postsPerPage;
+      postsLoop(data);
+      updateHeight();
+    })
+    .fail(function() {
+    //   console.log(err);
+    });
+}
+
+/**
+ * Loop through posts and append content
+ */
+
+
+
+function postsLoop(data) {
+  if (!data.length <= 0) {
+    $.each(data, function(index, value) {
+
+    var termArray = value._embedded['wp:term'][0];
+    // Get the featured image if there is a featured image.
+function get_featured_image() {
+    var featuredImgID = value.featured_media;
+
+// Create an empty container for theoretical featured image.
+var featImage;
+
+    if (featuredImgID === 0) {
+        featImage = '';
+    } else {
+        var featuredImg = value._embedded['wp:featuredmedia'][0];
+        var imgLarge = '';
+        var imgWidth = featuredImg.media_details.sizes.full.width;
+        var imgHeight = featuredImg.media_details.sizes.full.height;
+        if (featuredImg.media_details.sizes.hasOwnProperty('large')) {
+            imgLarge = featuredImg.media_details.sizes.large.source_url +  ' 1024w, ';
+        }
+        featImage = '<div class="single-featured-image-header">' +
+                     '<img src="' + featuredImg.media_details.sizes.full.source_url + '" ' +
+                     'width="' + imgLarge + '" ' +
+                     'height="' + imgHeight + '" ' +
+                     'class="csf-image" ' +
+                     'alt="" ' +
+                     'srcset="' + featuredImg.media_details.sizes.full.source_url + ' ' + imgWidth + 'w, ' + imgLarge + featuredImg.media_details.sizes.medium.source_url + ' 300w" ' +
+                     'sizes="100vw">' +
+                     '</div>';
     }
-    previous_post_trigger();
-
-    /*Main function getting the post*/
-    function get_previous_post(){
-        var previous_post_ID = $(this).attr('data-id');
-        var json_url = 'http://localhost/katewp/wp-json/wp/v2/' + 'portfolio-item/' + previous_post_ID + '?_embed=true';
-
-
-        $.ajax({
-            dataType:'json',
-            url:json_url,
-        })
-        .done(function(data){
-            build_portfolio_item(data);
-
-
-            // data._embedded['wp:term'][0][0].name
-
-            // var termArray = data._embedded['wp:term'][0];
-            // console.log(termArray);
-            
-            // //looping through the taxonimies
-            // $.each(termArray, function(index, value){
-            //     var termName = value.name;
-            //     // console.log(index);
-            //     // console.log(termName);
-            // });
-
-        })
-        .fail(function(){
-            // console.log('error');
-        })
-        .always(function(){
-            // console.log('ajax complete');
-        });
-
-        function build_portfolio_item(data){
-            console.log(data);
-
-            var termArray = data._embedded['wp:term'][0];
-            console.log(termArray);
-
-            var previous_post_content =
+    return featImage;
+}
+      var previousPostContent = '<hr>' +
              '<div class="generated">' +
              '<div class="wrap">'+
              '<div class="content-area">' +
              '<div class="site-main">' +
-              '<article class="post hentry" data-id="' + data.id + '">' +
-              '<h1>' + data.title.rendered + '</h1>' +
-               '<div class="portfolio-item-content">' + data.content.rendered + '</div>' +
-                 '<div>' + data.CFS.portfolio_item_start + '</div>' + '<div>' + data.CFS. portfolio_item_end + '</div>';
+              '<article class="post hentry" data-id="' + value.id + '">' +
+              '<h1>' + value.title.rendered + '</h1>' +
+               '<div class="portfolio-item-content">' + value.content.rendered + '</div>' 
+               + get_featured_image() +
+                 '<div>' + value.CFS.portfolio_item_start + '</div>' + '<div>' + value.CFS. portfolio_item_end + '</div>';
 
-                previous_post_content += '<ul>';
-                                         //looping through the taxonomies
+                previousPostContent += '<ul>';
+                //looping through the taxonomies
                 $.each(termArray, function(index, value){
-                    //var termName = value.name;
-                    previous_post_content += '<li><a href="'+value.link+'">'+value.name+'</a></li>'; 
+                    // var termName = value.name;
+                    previousPostContent += '<li><a href="'+ value.link +'">'+ value.name+'</a></li>';
                 });
-                previous_post_content += '</ul>';
+                previousPostContent += '</ul>';
 
-                previous_post_content += '</article><!-- #post-## -->' +
+                previousPostContent += '</article><!-- #post-## -->' +
                 '</div><!-- .site-main -->' +
                 '</div><!-- .content-area -->' +
-            '</div><!---.wrap-->' +
+                '</div><!---.wrap-->' +
+                '</div><!---.generated-->';
+      $mainContent.append(previousPostContent);
 
-            '<nav class="navigation post-navigation load-previous" role="navigation">' +
-                '<span class="nav-subtitle">More our works</span>' +
-                '<div class="nav-links">' +
-                '<div class="nav-previous">' +
-                '<a href="javascript:void(0)" data-id="' + data.id + '">' +
-                data.title.rendered +
-                '</a>' +
-            '</nav>';
+    });
+  } else {
+    morePosts = false;
+    $mainContent.append('<h2>No more posts to load 😔</h3>');
+    $(window).unbind('scroll');
+  }
+}
 
+/**
+ * Update height variables as the page will grow as posts are appended
+ */
+function updateHeight() {
+  documentHeight = $(document).height();
+  windowHeight = $(window).height();
+  heightOffset = documentHeight - windowHeight;
+}
 
-
-
-
-         // Append related posts to the #related-posts container
-        $('.post-navigation').replaceWith(previous_post_content);
-        // $(previous_post_content).insertBefore('.post-navigation');
-        //console.log(previous_post_content);
-        //add get image function
-
-        }
-
-    }
-           // Reininitialize the previous post trigger on new content.
-           //previous_post_trigger();
-
-
- })(jQuery);
+})(jQuery);
