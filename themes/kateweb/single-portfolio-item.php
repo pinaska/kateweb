@@ -39,14 +39,7 @@ get_header(); ?>
 
 <nav class="navigation post-navigation load-previous" role="navigation">
 		<span class="nav-subtitle">More our works</span>
-		<div class="nav-links">
-			<div class="nav-previous">
-				<?php $previous_post = get_previous_post(); ?>
-				<a href="<?php echo get_permalink($previous_post->ID); ?>" data-id="<?php echo $previous_post->ID; ?>">
-					<?php echo $previous_post->post_title; ?>
-				</a>
-			</div>
-		</div>
+
 </nav>
 
 <?php endwhile; // End of the loop. ?>

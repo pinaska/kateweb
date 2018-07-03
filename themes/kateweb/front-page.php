@@ -19,20 +19,17 @@ get_header(); ?>
 							<div class="front-page-container">
 								<div class="front-page-item">
 									<div class="hello-text">
-									<h1>Hello !</h1>
-									<p>We code nice websites to help you tell a story.</p>
+									<?php echo CFS()->get('first_section')?>
 									</div>
 								</div>
 								<div class="front-page-item">
-									<h1>Our portfolio.</h1>
-									<p> We build web so you can make money. And we build web for fun too.</p>
+								<?php echo CFS()->get('second_section')?>
 								</div>
 								<div class="front-page-item">
 									<!-- <img class="position-letter" src="assets/p.svg"> -->
-									<h1>Team of two.</h1>
-									<p> Kate and Kuba. Husband and wife. Fine Arts, programming and analytics skills combined. You tell us and we code it. </p>
+									<?php echo CFS()->get('third_section')?>
 								</div>
-							</div>
+							</div><!--.front-page-container-->
                     </div><!-- .entry-content -->
                 </article><!-- #post-## -->
 

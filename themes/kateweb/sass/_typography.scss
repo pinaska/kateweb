@@ -27,6 +27,9 @@ h1, h2{
 h1{
 letter-spacing: 0.2rem;
 text-decoration: underline;
+	@include desktop{
+		font-size: 1.5rem;
+	}
 }
 
 
@@ -34,6 +37,9 @@ text-decoration: underline;
 
 p {
 	margin-bottom: $base__space-unit;
+	@include desktop{
+		font-size: 1rem;
+	}
 }
 
 dfn, cite, em, i {

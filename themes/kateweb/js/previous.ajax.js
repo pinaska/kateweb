@@ -8,28 +8,20 @@
 (function($){
 
 var $mainContent = $('.wrap');
-var documentHeight = $(document).height();
-var windowHeight = $(window).height();
-var heightOffset = documentHeight - windowHeight;
 var triggerAjaxOffest = 100;
 var scrolling = false;
-var yPos = 0;
 var postIndex = 1;
-// var postsPerPage = 3;
-var morePosts = true;
-
-var postsUrl = 'http://localhost/katewp/wp-json/wp/v2/portfolio-item/?_embed=trues';
 
 /**
  * Window Scroll Position
  */
 $(window).scroll(function() {
-  yPos = $(window).scrollTop();
-//   console.log(yPos);
+  // console.log(yPos);
   if (!scrolling) {
     scrolling = true;
     setTimeout(function() {
       scrolling = false;
+      var yPos = $(window).scrollTop();
       checkScrollPos(yPos);
     }, 300);
   }
@@ -41,17 +33,23 @@ $(window).scroll(function() {
 function checkScrollPos(yPos) {
 //   console.log('check scroll pos');
 //   console.log(yPos);
+  var documentHeight = $(document).height();
+  var windowHeight = $(window).height();
+  var heightOffset = documentHeight - windowHeight;
   if (yPos >= heightOffset - triggerAjaxOffest) {
-    // console.log('bottom of page');
+    console.log('bottom of page');
     // console.log(yPos);
-    ajaxRequest();
+    ajaxRequest(postIndex);
+    postIndex += 1;
   }
 }
 
 /**
  * Ajax request load posts
  */
-function ajaxRequest() {
+function ajaxRequest(page) {
+  var postsUrl = 'http://localhost/katewp/wp-json/wp/v2/portfolio-item/?_embed=true&per_page=1&page=' + page;
+  console.log(postsUrl);
   $.ajax({
     method: 'get',
     url:postsUrl
@@ -60,7 +58,6 @@ function ajaxRequest() {
     //   console.log(data);
     //   postIndex += postsPerPage;
       postsLoop(data);
-      updateHeight();
     })
     .fail(function() {
     //   console.log(err);
@@ -135,19 +132,9 @@ var featImage;
 
     });
   } else {
-    morePosts = false;
     $mainContent.append('<h2>No more posts to load 😔</h3>');
     $(window).unbind('scroll');
   }
-}
-
-/**
- * Update height variables as the page will grow as posts are appended
- */
-function updateHeight() {
-  documentHeight = $(document).height();
-  windowHeight = $(window).height();
-  heightOffset = documentHeight - windowHeight;
 }
 
 })(jQuery);
