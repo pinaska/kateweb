@@ -27,3 +27,4 @@ themes/
 # Ignore packages #
 # =============== #
 node_modules/
+gulpfile.js
