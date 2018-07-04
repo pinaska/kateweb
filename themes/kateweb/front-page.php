@@ -12,9 +12,8 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<section class="hero-divs">
-						<!-- <div class="entry-content"> -->
 								<div class="front-page-container">
 									<div class="front-page-item">
 										<?php echo CFS()->get('first_section')?>
@@ -27,10 +26,8 @@ get_header(); ?>
 										<?php echo CFS()->get('third_section')?>
 									</div>
 								</div><!--.front-page-container-->
-						<!-- </div>.entry-content -->
-
-				</section>
-				<section class="portfolio-display">
+					</section><!--hero-divs-->
+					<section class="portfolio-display">
 						<?php
 						$args = array(
 							'post_type' => 'portfolio-item',
@@ -43,16 +40,33 @@ get_header(); ?>
 
 						<?php foreach ( $portfolio_items as $post ) : setup_postdata( $post );?>
 						<div class="portfolio-grid-item">
-						<div class="portfolio-item-thumbnail">
-							<a href=<?php echo get_post_permalink() ?>><?php the_post_thumbnail( 'thumbnail' ); ?></a>
-				</div>
-						<div class="portfolio-item-info">
-                <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-                <a class="portfolio-item-button" href=<?php echo get_permalink() ?>>see more</a>
-              </div>
-
+							<div class="portfolio-item-thumbnail">
+								<a href=<?php echo get_post_permalink() ?>><?php the_post_thumbnail( 'thumbnail' ); ?></a>
+							</div>
+							<div class="portfolio-item-info">
+								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+								<a class="portfolio-item-button" href=<?php echo get_permalink() ?>>see more</a>
+							</div>
+						</div>
 						<?php endforeach; wp_reset_postdata(); ?>
-				</section>
+					</section><!--portfolio-display-->
+					<section class="contact">
+						<div class="contact-front-pg">
+							<?php 
+							$query = new WP_Query( 'pagename=contact' );
+								if($query->have_posts()){
+									while($query->have_posts()){
+										$query->the_post();
+										echo '<div class="entry-content">';
+										the_title();
+										the_content();
+										echo '</div>';
+									}
+								}
+							wp_reset_postdata();
+							?>
+						</div>
+					</section>
 				</article><!-- #post-## -->
 			<?php endwhile; // End of the loop. ?>
 
