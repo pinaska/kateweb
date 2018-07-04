@@ -15,18 +15,15 @@
   .site-content{
     padding-top: 0;
   }
-    // .entry-content, .entry-summary, .page-content {
-    //     margin: 0 auto;
-    // }
     .hentry{
         margin: 0;
     }
     .front-page-container{
       display:block;
         @include desktop{
-          min-height: 50vh;
+          min-height: 20rem;
           display: grid;
-          grid-template-columns: 50% 25% 25%;
+          grid-template-columns: 40% 30% 30%;
         }
       .front-page-item{
         padding:5%;
@@ -51,9 +48,6 @@
               @include tablet{
                 text-align:right;
               }
-              @include desktop{
-                 transform: translateY(300px);
-              }
           }
           p{
             margin-top: auto;
@@ -61,6 +55,56 @@
           }
       }
     }
+    .portfolio-display{
+      h2{
+        margin-top: 0;
+        a{
+          color: rgb(22, 115, 110);
+          font-size:1.2rem;
+          &:hover{
+            transform: scale(1.2);
+            color:$color__link-hover;
+          }
+        }
+      }
+      .portfolio-grid-item{
+        display: block;
+          @include tablet{
+            display: flex;
+            justify-content: center;
+          }
+        &:nth-of-type(even){
+          @include tablet{
+            flex-direction: row-reverse;
+            text-align: right;
+            // background-color: rgba(22, 115, 110, 0.05);
+          }
+        }
+        .portfolio-item-thumbnail{
+          object-fit: contain;
+          // width: 300px;
+          height: auto;
+          overflow: hidden;
+            a img{
+              //I want to have a light moving effect
+              animation: slideLayout 5s infinite;
+            }
+            @include desktop{
+              max-width: 300px;
+            }
+        }
+        .portfolio-item-info{
+          padding: 0 1rem;
+//           max-width:300px;
+          @include tablet{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+        }
+      }
+    }//end of .portfolio-display
 }// end of .home
 
 
@@ -82,7 +126,6 @@
 .portfolio-text{
 margin: 0 auto;
 font-size: 0.8rem;
-width: 300px;
 
 }
 .post-type-archive-portfolio-item{

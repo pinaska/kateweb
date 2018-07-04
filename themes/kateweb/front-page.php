@@ -13,7 +13,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<section class="hero-divs">
+					<section class="hero">
 								<div class="front-page-container">
 									<div class="front-page-item">
 										<?php echo CFS()->get('first_section')?>
@@ -26,8 +26,14 @@ get_header(); ?>
 										<?php echo CFS()->get('third_section')?>
 									</div>
 								</div><!--.front-page-container-->
-					</section><!--hero-divs-->
+					</section><!--hero-->
 					<section class="portfolio-display">
+						<div class="portfolio-text">
+							<p>scroll down to find all our works</p>
+						</div>
+						<header>
+							<h1 class="portfolio-item-archive">works</h1>
+						</header>
 						<?php
 						$args = array(
 							'post_type' => 'portfolio-item',
@@ -41,7 +47,7 @@ get_header(); ?>
 						<?php foreach ( $portfolio_items as $post ) : setup_postdata( $post );?>
 						<div class="portfolio-grid-item">
 							<div class="portfolio-item-thumbnail">
-								<a href=<?php echo get_post_permalink() ?>><?php the_post_thumbnail( 'thumbnail' ); ?></a>
+								<a href=<?php echo get_post_permalink() ?>><?php the_post_thumbnail( 'medium' ); ?></a>
 							</div>
 							<div class="portfolio-item-info">
 								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
@@ -57,8 +63,8 @@ get_header(); ?>
 								if($query->have_posts()){
 									while($query->have_posts()){
 										$query->the_post();
+										echo ('<h1>'.get_the_title().'</h1>');
 										echo '<div class="entry-content">';
-										the_title();
 										the_content();
 										echo '</div>';
 									}
