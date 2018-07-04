@@ -14,13 +14,10 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                    <div class="entry-content">
-						<?php the_content(); ?>
+                    <!-- <div class="entry-content"> -->
 							<div class="front-page-container">
 								<div class="front-page-item">
-									<div class="hello-text">
 									<?php echo CFS()->get('first_section')?>
-									</div>
 								</div>
 								<div class="front-page-item">
 								<?php echo CFS()->get('second_section')?>
@@ -30,7 +27,7 @@ get_header(); ?>
 									<?php echo CFS()->get('third_section')?>
 								</div>
 							</div><!--.front-page-container-->
-                    </div><!-- .entry-content -->
+                    <!-- </div>.entry-content -->
                 </article><!-- #post-## -->
 
 

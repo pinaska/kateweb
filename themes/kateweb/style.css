@@ -746,51 +746,48 @@ object {
 .home.page-template-default.page .site-content {
   padding-top: 0; }
 
-.home.page-template-default.page .entry-content, .home.page-template-default.page .entry-summary, .home.page-template-default.page .page-content {
-  margin: 0 auto; }
-
 .home.page-template-default.page .hentry {
   margin: 0; }
 
 .home.page-template-default.page .front-page-container {
   display: block; }
-  .home.page-template-default.page .front-page-container .front-page-item:first-of-type {
-    background-color: #003372;
-    color: #ffff;
-    grid-area: 1/1/3/2;
+  @media (min-width: 1000px) {
+    .home.page-template-default.page .front-page-container {
+      min-height: 50vh;
+      display: grid;
+      grid-template-columns: 50% 25% 25%; } }
+  .home.page-template-default.page .front-page-container .front-page-item {
+    padding: 5%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-  .home.page-template-default.page .front-page-container .front-page-item:nth-of-type(2) {
-    background-color: #71e2dc;
-    color: #357572; }
-  .home.page-template-default.page .front-page-container .front-page-item:nth-of-type(3) {
-    background-color: #f7989c;
-    color: #ad5358; }
-
-.home.page-template-default.page .front-page-item {
-  padding: 5%; }
-  .home.page-template-default.page .front-page-item h1 {
-    font-size: 50px;
-    text-decoration: underline;
-    letter-spacing: 3px; }
-
-@media (min-width: 1000px) {
-  .home.page-template-default.page .front-page-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr; }
+            flex-direction: column; }
     .home.page-template-default.page .front-page-container .front-page-item:first-of-type {
       background-color: #003372;
-      color: #ffff;
-      grid-area: 1/1/3/2; } }
+      color: #ffff; }
+    .home.page-template-default.page .front-page-container .front-page-item:nth-of-type(2) {
+      background-color: #71e2dc;
+      color: #357572; }
+    .home.page-template-default.page .front-page-container .front-page-item:nth-of-type(3) {
+      background-color: #f7989c;
+      color: #ad5358; }
+    .home.page-template-default.page .front-page-container .front-page-item h1 {
+      font-size: 50px;
+      text-decoration: underline;
+      letter-spacing: 3px; }
+      @media (min-width: 600px) {
+        .home.page-template-default.page .front-page-container .front-page-item h1 {
+          text-align: right; } }
+      @media (min-width: 1000px) {
+        .home.page-template-default.page .front-page-container .front-page-item h1 {
+          -webkit-transform: translateY(300px);
+                  transform: translateY(300px); } }
+    .home.page-template-default.page .front-page-container .front-page-item p {
+      margin-top: auto;
+      text-align: right; }
 
 /*Single portfolio item*/
 .portfolio-item-template-default {
