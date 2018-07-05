@@ -27,10 +27,22 @@
 					<h1 class="site-title screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				</div><!-- .site-branding -->
 
-				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html( 'Primary' ); ?></button>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-				</nav><!-- #site-navigation -->
+				<div class="menu-toggle">
+					<button class="mobile-menu" type="button" aria-expanded="false" aria-controls="primary-menu">
+						<?php esc_html('Primary Menu');?>
+						<span class="mobile-menu-box">
+							<span class="mobile-menu-inner">menu </span>
+						</span>
+					</button>
+
+					</div>
+
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+
+						<?php wp_nav_menu(array('theme_location' => 'primary', 'menu_id' => 'primary-menu'));?>
+					</nav><!-- #site-navigation -->
+					</div><!-- .site-header-menu -->
+			</div><!-- .site-header-main -->
 			</header><!-- #masthead -->
 
 			<div id="content" class="site-content">

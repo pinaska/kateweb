@@ -24,6 +24,7 @@ function kateweb_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html( 'Primary' ),
+		'social' => esc_html('Social links')
 	) );
 
 	// Switch search form, comment form, and comments to output valid HTML5.
@@ -91,11 +92,7 @@ add_filter( 'stylesheet_uri', 'kateweb_minified_css', 10, 2 );
 function kateweb_scripts() {
 	wp_enqueue_style( 'kateweb-style', get_stylesheet_uri() );
 
-	wp_enqueue_script('kateweb-navigation', get_template_directory_uri('/build/js/navigation.min.js'), array('jquery'), '20131115', true );
-	wp_localize_script( 'kateweb-navigation', 'katewebScreenReaderText', array(
-		'expand' => __('Expand child menu', 'kateweb'),
-		'collapse' => __('Collapse child menu', 'kateweb'),
-	));
+	wp_enqueue_script('kateweb-navigation', get_template_directory_uri().'/build/js/navigation.min.js', array('jquery'), '20180705', true );
 
 	wp_enqueue_script( 'kateweb-skip-link-focus-fix', get_template_directory_uri() . '/build/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 

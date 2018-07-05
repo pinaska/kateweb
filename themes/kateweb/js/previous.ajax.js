@@ -76,7 +76,7 @@ function postsLoop(data) {
 
     var termArray = value._embedded['wp:term'][0];
     // Get the featured image if there is a featured image.
-function get_featured_image() {
+function getFeaturedImage() {
     var featuredImgID = value.featured_media;
 
 // Create an empty container for theoretical featured image.
@@ -112,7 +112,7 @@ var featImage;
               '<article class="post hentry" data-id="' + value.id + '">' +
               '<h1>' + value.title.rendered + '</h1>' +
                '<div class="portfolio-item-content">' + value.content.rendered + '</div>' 
-               + get_featured_image() +
+               + getFeaturedImage() +
                  '<div>' + value.CFS.portfolio_item_start + '</div>' + '<div>' + value.CFS. portfolio_item_end + '</div>';
 
                 previousPostContent += '<ul>';
