@@ -56,6 +56,15 @@
       }
     }
     .portfolio-display{
+      h1{
+          text-decoration: none;
+          color:$color__pink;
+          font-size:3rem;
+        @include tablet{
+          text-align: left;
+
+        }
+      }
       h2{
         margin-top: 0;
         a{
@@ -69,9 +78,12 @@
       }
       .portfolio-grid-item{
         display: block;
+        margin: 0 auto;
           @include tablet{
+            max-width: 600px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
+            // justify-content: center;
           }
         &:nth-of-type(even){
           @include tablet{
@@ -80,28 +92,68 @@
             // background-color: rgba(22, 115, 110, 0.05);
           }
         }
+        &:nth-of-type(odd){
+          @include tablet{
+             text-align: left;
+          }
+        }
         .portfolio-item-thumbnail{
-          object-fit: contain;
-          // width: 300px;
-          height: auto;
+          height: 100%;
+          width: 300px;
           overflow: hidden;
-            a img{
-              //I want to have a light moving effect
-              animation: slideLayout 5s infinite;
+          border: 3px solid;
+          margin: 0 auto;
+            @include tablet{
+              margin: 0;
             }
-            @include desktop{
-              max-width: 300px;
+            .thumbnail-header{
+                @include tablet{
+                    width: 297px;
+                    height: 1rem;
+                    border-bottom: 3px solid;
+                    border-right: 3px solid;
+                    z-index: 1;
+                    background: white;
+                    position: absolute;
+                    line-height: 1rem;
+                      p{
+                        line-height: 1rem;
+                        margin: 0;
+                        padding: 0;
+                      }
+                }
+
+            }
+            .thumbnail-body{
+              height: 400px;
+              img{
+                //I want to have a light moving effect
+                height: auto;
+                animation: slideLayout 10s infinite;
+                margin-top: 2rem;
+              }
             }
         }
         .portfolio-item-info{
+          height: 50vh;
           padding: 0 1rem;
 //           max-width:300px;
           @include tablet{
+            height: auto;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+//             justify-content: space-between;
+            padding:1rem 2rem;
+          }
+          .portfolio-item-button{
+            text-transform:uppercase;
           }
 
+        }
+      }
+      @keyframes slideLayout {
+        50% {
+          transform: translateY(-350px);
         }
       }
     }//end of .portfolio-display

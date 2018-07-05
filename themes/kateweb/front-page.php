@@ -47,7 +47,12 @@ get_header(); ?>
 						<?php foreach ( $portfolio_items as $post ) : setup_postdata( $post );?>
 						<div class="portfolio-grid-item">
 							<div class="portfolio-item-thumbnail">
-								<a href=<?php echo get_post_permalink() ?>><?php the_post_thumbnail( 'medium' ); ?></a>
+								<div class="thumbnail-header">
+									<p>x</p>
+								</div>
+								<div class="thumbnail-body">
+									<?php the_post_thumbnail( 'large' ); ?>
+								</div>
 							</div>
 							<div class="portfolio-item-info">
 								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
