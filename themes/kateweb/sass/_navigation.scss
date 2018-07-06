@@ -133,14 +133,14 @@ a {
 	position: absolute;
     right: 0;
 	width: 100%;
-	background: #eee;
+	background: white;
 	z-index: 10;
-	margin-top:2rem;
+	margin-top:2.5rem;
 		@include tablet {
 			width: 25%;
 		}
 		li {
-// 			border-bottom: 1px solid #fff;
+// 			border-bottom: 1px solid $color__navy;
 			padding: 1rem;
 			text-align:center;
 		}

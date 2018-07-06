@@ -1,12 +1,16 @@
 /*--------------------------------------------------------------
 # Page Templates
 --------------------------------------------------------------*/
-.error404, .page-template-default.page, .portfolioitem-template-default, .post-type-archive-portfolio-item, .single-portfolio-item{
+/*genreral rules*/
+
+.error404, .page-template-default.page, .portfolioitem-template-default, .post-type-archive-portfolio-item, .single-portfolio-item,{
     .site-content{
       padding-top: 3rem;
+        .site-main{
+        margin: 0 auto;
+        width:80%;
+        }
     }
-
-    margin: 0 auto;
   }
 
 
@@ -14,6 +18,9 @@
 .home.page-template-default.page{
   .site-content{
     padding-top: 0;
+  }
+  .site-main{
+    width:100%;
   }
     .hentry{
         margin: 0;
@@ -81,7 +88,7 @@
         display: block;
         margin: 0 auto;
           @include tablet{
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
             // justify-content: center;
@@ -100,14 +107,20 @@
         }
         .portfolio-item-thumbnail{
           height: 100%;
-          width: 300px;
+          width: calc(80%);
+//           width: 300px;
           overflow: hidden;
           border: 3px solid;
           margin: 0 auto;
             @include tablet{
               margin: 0;
+              width:calc(50%)
             }
             .thumbnail-header{
+              border-bottom: 3px solid;
+              position: absolute;
+              background: white;
+              line-height: 1rem;
                 @include tablet{
                     width: 297px;
                     height: 1rem;
@@ -198,7 +211,7 @@ font-size: 0.8rem;
   grid-gap: 1rem;
   text-align: left;
   @include tablet{
-    max-width: 800px;
+//     max-width: 800px;
   }
   .portfolio-grid-item{
     display: block;
