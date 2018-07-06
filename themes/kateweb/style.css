@@ -479,6 +479,7 @@ a {
 
 /* Menus */
 .site-header {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -489,9 +490,6 @@ a {
       margin-top: 1.5rem; } }
 
 .main-navigation {
-  clear: both;
-  display: block;
-  float: left;
   width: 100%; }
   .main-navigation ul {
     display: none;
@@ -524,48 +522,51 @@ a {
     display: block;
     text-decoration: none; }
 
-.custom-logo-link img {
-  display: block;
-  height: auto;
-  width: auto; }
+.site-branding {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  margin: 0 2rem; }
 
 /* Small menu. */
 .main-navigation.toggled ul {
-  display: block;
-  position: initial; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 500px) {
   .menu-toggle {
-    display: none; }
+    display: none;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3; }
   .main-navigation ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
     z-index: 2;
-    padding: 10px; }
+    padding: 0.5rem; }
     .main-navigation ul li {
-      padding: 10px; } }
+      padding: 0.5rem; } }
 
 .main-navigation.toggled {
   position: absolute;
   right: 0;
-  top: 3.55rem;
-  width: 50%;
+  width: 100%;
   background: #eee;
   z-index: 10;
-  bottom: 3rem; }
+  margin-top: 2rem; }
   @media (min-width: 600px) {
     .main-navigation.toggled {
-      width: 40%; } }
+      width: 25%; } }
   .main-navigation.toggled li {
-    border-bottom: 1px solid #fff;
-    padding: 1rem; }
+    padding: 1rem;
+    text-align: center; }
   .main-navigation.toggled .sub-menu {
-    float: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
     width: 100%; }
     .main-navigation.toggled .sub-menu a {
       font-weight: 300;
@@ -776,7 +777,7 @@ object {
   display: block; }
   @media (min-width: 1000px) {
     .home.page-template-default.page .front-page-container {
-      min-height: 20rem;
+      min-height: 25rem;
       display: grid;
       grid-template-columns: 40% 30% 30%; } }
   .home.page-template-default.page .front-page-container .front-page-item {

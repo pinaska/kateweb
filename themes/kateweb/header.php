@@ -30,9 +30,7 @@
 				<div class="menu-toggle">
 					<button class="mobile-menu" type="button" aria-expanded="false" aria-controls="primary-menu">
 						<?php esc_html('Primary Menu');?>
-						<span class="mobile-menu-box">
-							<span class="mobile-menu-inner">menu </span>
-						</span>
+						<span>menu</span>
 					</button>
 
 					</div>

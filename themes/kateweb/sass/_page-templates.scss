@@ -21,7 +21,7 @@
     .front-page-container{
       display:block;
         @include desktop{
-          min-height: 20rem;
+          min-height: 25rem;
           display: grid;
           grid-template-columns: 40% 30% 30%;
         }

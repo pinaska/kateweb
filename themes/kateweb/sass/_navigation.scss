@@ -32,6 +32,7 @@ a {
 
 /* Menus */
 .site-header{
+	width:100%;
 	display: flex;
 	position: fixed;
 	margin-top:2.5rem;
@@ -40,9 +41,6 @@ a {
 	}
 }
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
 	width: 100%;
 
 	ul {
@@ -98,19 +96,11 @@ a {
 		display: block;
 		text-decoration: none;
 	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a {
-	}
 }
 //logo
-.custom-logo-link{
-	img{
-		display:block;
-		height: auto;
-		width:auto;
-	}
+.site-branding{
+	order:3;
+	margin:0 2rem;
 }
 
 /* Small menu. */
@@ -119,22 +109,22 @@ a {
 // 	display: block;
 // }
 .main-navigation.toggled ul {
-	display: block;
-	position: initial;
+	display: flex;
+	flex-direction:column;
+// 	position: initial;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 500px) {
 	.menu-toggle {
 		display: none;
+		order:3;
 	}
 	.main-navigation ul {
 		display: flex;
-		justify-content: space-around;
-		// position: fixed;
 		z-index: 2;
-		padding: 10px;
+		padding: 0.5rem;
 		li{
-			    padding: 10px;
+			    padding: 0.5rem;
 		}
 	}
 }
@@ -142,25 +132,19 @@ a {
 .main-navigation.toggled {
 	position: absolute;
     right: 0;
-	top: 3.55rem;
-	width: 50%;
-// 	height: 100vh;
+	width: 100%;
 	background: #eee;
 	z-index: 10;
-	bottom: 3rem;
+	margin-top:2rem;
 		@include tablet {
-			width: 40%;
+			width: 25%;
 		}
-	
 		li {
-			border-bottom: 1px solid #fff;
+// 			border-bottom: 1px solid #fff;
 			padding: 1rem;
+			text-align:center;
 		}
-	
-
 		.sub-menu {
-			float: none;
-			box-shadow: none;
 			width: 100%;
 				a{
 					font-weight: 300;
