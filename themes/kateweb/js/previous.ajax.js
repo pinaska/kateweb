@@ -71,7 +71,7 @@ function ajaxRequest(page) {
 
 
 function postsLoop(data) {
-  if (!data.length <= 0) {
+  if (data.length > 0) {
     $.each(data, function(index, value) {
 
     var termArray = value._embedded['wp:term'][0];
