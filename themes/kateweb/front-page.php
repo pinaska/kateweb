@@ -56,6 +56,7 @@ get_header(); ?>
 							</div>
 							<div class="portfolio-item-info">
 								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+								<?php the_excerpt();?>
 								<a class="portfolio-item-button" href=<?php echo get_permalink() ?>>see more</a>
 							</div>
 						</div>

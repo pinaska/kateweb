@@ -149,7 +149,7 @@
             }
         }
         .portfolio-item-info{
-          height: 50vh;
+//           height: 50vh;
           padding: 0 1rem;
 //           max-width:300px;
           @include tablet{
@@ -158,6 +158,9 @@
             flex-direction: column;
 //             justify-content: space-between;
             padding:1rem 2rem;
+          }
+          .portfolio-item-desc{
+            font-size: 0.5rem;
           }
           .portfolio-item-button{
             text-transform:uppercase;

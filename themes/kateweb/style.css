@@ -875,7 +875,6 @@ object {
                 animation: slideLayout 10s infinite;
         margin-top: 2rem; }
   .home.page-template-default.page .portfolio-display .portfolio-grid-item .portfolio-item-info {
-    height: 50vh;
     padding: 0 1rem; }
     @media (min-width: 600px) {
       .home.page-template-default.page .portfolio-display .portfolio-grid-item .portfolio-item-info {
@@ -888,6 +887,8 @@ object {
             -ms-flex-direction: column;
                 flex-direction: column;
         padding: 1rem 2rem; } }
+    .home.page-template-default.page .portfolio-display .portfolio-grid-item .portfolio-item-info .portfolio-item-desc {
+      font-size: 0.5rem; }
     .home.page-template-default.page .portfolio-display .portfolio-grid-item .portfolio-item-info .portfolio-item-button {
       text-transform: uppercase; }
 
